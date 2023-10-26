@@ -32,4 +32,13 @@ class EmployerCreate(CreateView):
     fields = '__all__'
     success_url = reverse_lazy('employer-list')
     
+class EmployerUpdate(UpdateView):
+    model = Employer
+    fields = '__all__'
+    success_url = reverse_lazy('employer-list')
+    
+class EmployerDelete(DeleteView):
+    model = Employer
+    success_url = reverse_lazy('employer-list')
+    
 # endregion: employer

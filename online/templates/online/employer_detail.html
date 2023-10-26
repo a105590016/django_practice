@@ -3,10 +3,12 @@
 {% block content %}
 <h1>老闆資訊頁</h1>
 <hr>
-<p>id: {{ employer.id }}</p>
+<p>
+    <a href="{% url 'employer-update' employer.id %}">id: {{ employer.id }}</a> - 點我編輯老闆資訊
+</p>
 <p>first_name: {{ employer.first_name }}</p>
 <p>last_name: {{ employer.last_name }}</p>
 <p>age: {{ employer.age }}</p>
 <hr>
-<a href="{% url 'employer-list' %}">返回列表</a>
+<a href="{% url 'employer-list' %}">回到上一頁</a>
 {% endblock %}
