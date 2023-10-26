@@ -24,6 +24,9 @@ class EmployerListView(generic.ListView):
     """
     model = Employer
     
+class EmployerDetailView(generic.DetailView):
+    model = Employer
+    
 class EmployerCreate(CreateView):
     model = Employer
     fields = '__all__'

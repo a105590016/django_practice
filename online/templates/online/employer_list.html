@@ -1,5 +1,24 @@
 {% extends 'sidebar.html' %}
 
 {% block content %}
-老闆列表頁
+<h2>老闆列表頁</h2>
+
+{{ employer_list }}
+
+<hr>
+<br>
+
+{% for employer in employer_list %}
+    <p>
+        <a href="{{ employer.get_absolute_url }}">{{ employer.id }}</a> ---- 老闆ID，點擊可進入老闆資訊頁
+    </p>
+    <p>model : {{ employer }}</p>
+    <p>姓 : {{ employer.first_name }}</p>
+    <p>名 : {{ employer.last_name }}</p>
+    <p>年齡 : {{ employer.age }}</p>
+    <hr>
+{% endfor %}
+
+<a href="{% url 'employer-create' %}">新增老闆</a>
+
 {% endblock %}

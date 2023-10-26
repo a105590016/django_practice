@@ -1,0 +1,12 @@
+{% extends 'sidebar.html' %}
+
+{% block content %}
+<h1>老闆資訊頁</h1>
+<hr>
+<p>id: {{ employer.id }}</p>
+<p>first_name: {{ employer.first_name }}</p>
+<p>last_name: {{ employer.last_name }}</p>
+<p>age: {{ employer.age }}</p>
+<hr>
+<a href="{% url 'employer-list' %}">返回列表</a>
+{% endblock %}
