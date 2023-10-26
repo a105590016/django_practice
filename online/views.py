@@ -5,7 +5,7 @@ from django.http  import HttpResponse
 from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
-from .models import Employer, Store
+from .models import Employer, Store, Product
 
 # Create your views here.
 
@@ -66,3 +66,27 @@ class StoreDelete(DeleteView):
     success_url = reverse_lazy('store-list')
     
 # endregion: store
+
+# region: product
+
+class ProductListView(generic.ListView):
+    model = Product
+    
+class ProductDetailView(generic.DetailView):
+    model = Product
+    
+class ProductCreate(CreateView):
+    model = Product
+    fields = '__all__'
+    success_url = reverse_lazy('product-list')
+    
+class ProductUpdate(UpdateView):
+    model = Product
+    fields = '__all__'
+    success_url = reverse_lazy('product-list')
+    
+class ProductDelete(DeleteView):
+    model = Product
+    success_url = reverse_lazy('product-list')
+    
+# endregion: product

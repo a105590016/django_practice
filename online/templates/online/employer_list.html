@@ -4,6 +4,7 @@
 <h2>老闆列表頁</h2>
 <hr>
 {% for employer in employer_list %}
+<div>
     <p>
         <a href="{{ employer.get_absolute_url }}">{{ employer.id }}</a> ---- 老闆ID，點擊可進入老闆資訊頁
     </p>
@@ -23,6 +24,7 @@
         <a href="{% url 'employer-delete' employer.id %}">點我刪除</a>
     </p>
     <hr>
+</div>
 {% endfor %}
 
 <a href="{% url 'employer-create' %}">新增老闆</a>

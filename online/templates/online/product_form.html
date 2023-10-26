@@ -1,7 +1,7 @@
 {% extends 'sidebar.html' %}
 
 {% block content %}
-<h2>{% if request.resolver_match.url_name == 'store-create' %}新增{% else %}編輯{% endif %} 商店</h2>
+<h2>{% if request.resolver_match.url_name == 'product-create' %}新增{% else %}編輯{% endif %} 商品</h2>
 
 <form action="" method="post">
     {% csrf_token %}

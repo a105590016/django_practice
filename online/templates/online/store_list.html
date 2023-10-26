@@ -4,19 +4,21 @@
 <h1>商店列表</h1>
 <hr>
 {% for store in store_list %}
-<ul>
-    <li>
-        <a href="{% url 'store-detail' store.id %}">商店ID</a>: {{ store.id }}
-    </li>
-    <li>店名: {{ store.title }}</li>
-    <li>介紹: {{ store.description }}</li>
-    <li>
-        <a href="{% url 'store-delete' store.id %}">刪除商店</a>
-    </li>
-</ul>
+<div>
+    <p>
+        <p>
+            <a href="{% url 'store-detail' store.id %}">商店ID</a>: {{ store.id }}
+        </p>
+        <p>店名: {{ store.title }}</p>
+        <p>介紹: {{ store.description }}</p>
+        <p>
+            <a href="{% url 'store-delete' store.id %}">刪除商店</a>
+        </p>
+    </p>
+</div>
+<hr>
 {% endfor %}
 
-<hr>
 <a href="{% url 'store-create' %}">新增商店</a>
 
 {% endblock %}
