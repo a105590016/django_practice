@@ -2,12 +2,7 @@
 
 {% block content %}
 <h2>老闆列表頁</h2>
-
-{{ employer_list }}
-
 <hr>
-<br>
-
 {% for employer in employer_list %}
     <p>
         <a href="{{ employer.get_absolute_url }}">{{ employer.id }}</a> ---- 老闆ID，點擊可進入老闆資訊頁
@@ -16,6 +11,14 @@
     <p>姓 : {{ employer.first_name }}</p>
     <p>名 : {{ employer.last_name }}</p>
     <p>年齡 : {{ employer.age }}</p>
+    <p>擁有的商店 :</p>
+        <ul>
+            {% for store in employer.store_set.all %}
+            <li>
+                <a href="{% url 'store-detail' store.id %}">{{ store }}</a>
+            </li>
+            {% endfor %}
+        </ul>
     <p>
         <a href="{% url 'employer-delete' employer.id %}">點我刪除</a>
     </p>
