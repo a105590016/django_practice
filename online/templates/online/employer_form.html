@@ -1,0 +1,14 @@
+{% extends 'sidebar.html' %}
+
+{% block content %}
+<h2>{% if request.resolver_match.url_name == 'employer-create' %}新增{% else %}編輯{% endif %} Employer</h2>
+
+<form action="" method="post">
+    {% csrf_token %}
+    <!-- form.as_p 是一個 Django 中的模板語法，它用於渲染表單（form）的 HTML 內容。form.as_p 會將表單的每個欄位以段落 <p> 標籤 的形式呈現 -->
+    {{ form.as_p }}
+    <button type="submit">儲存</button>
+</form>
+
+<a href="{% url 'employer-list' %}">返回列表</a>
+{% endblock %}
