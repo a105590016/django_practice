@@ -37,3 +37,21 @@ class Store(models.Model):
     
     def __str__(self):
         return self.title
+    
+
+class Product(models.Model):
+    title = models.CharField(max_length=100)
+    store = models.ManyToManyField(Store)
+    
+    def get_absolute_url(self):
+        return reverse('product-detail', args=[str(self.id)])
+    
+    def __str__(self):
+        return self.title
+    
+    
+class StoreProduct(models.Model):
+    store = models.ForeignKey(Store, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    quantity = models.PositiveIntegerField(default=0)
+    price = models.DecimalField(max_digits=10, decimal_places=2)
