@@ -10,4 +10,10 @@ urlpatterns = [
     path('employer/create', views.EmployerCreate.as_view(), name='employer-create'),
     path('employer/<int:pk>/update', views.EmployerUpdate.as_view(), name='employer-update'),
     path('employer/<int:pk>/delete', views.EmployerDelete.as_view(), name='employer-delete'),
+    # store
+    path('stores', views.StoreListView.as_view(), name='store-list'),
+    path('store/<int:pk>', views.StoreDetailView.as_view(), name='store-detail'),
+    path('store/create', views.StoreCreate.as_view(), name='store-create'),
+    path('store/<int:pk>/update', views.StoreUpdate.as_view(), name='store-update'),
+    path('store/<int:pk>/delete', views.StoreDelete.as_view(), name='store-delete'),
 ]

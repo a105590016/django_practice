@@ -1,0 +1,13 @@
+{% extends 'sidebar.html' %}
+
+{% block content %}
+<h1>商店資訊頁</h1>
+<hr>
+<p>店名: {{ store.title }}</p>
+<p>介紹: {{ store.description }}</p>
+<p>老闆: {{ store.employer }}</p>
+<p>老闆的年紀: {{ store.employer.age }}</p>
+<a href="{% url 'store-update' store.id %}">編輯商店資料</a>
+<hr>
+<a href="{% url 'store-list' %}">回到上一頁</a>
+{% endblock %}
