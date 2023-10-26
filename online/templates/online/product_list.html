@@ -1,22 +1,22 @@
 {% extends 'sidebar.html' %}
 
 {% block content %}
-<h1>商店列表</h1>
+<h1>商品列表</h1>
 <hr>
 
 {% for product in product_list %}
 <div>
     <p>
-        <a href="{% url 'product-detail' product.id %}">產品ID</a>: {{ product.id }}
+        <a href="{{ product.get_absolute_url }}">商品ID</a>: {{ product.id }}
     </p>
-    <p>產品名: {{ product.title }}</p>
+    <p>商品名: {{ product.title }}</p>
     <p>
-        <a href="{% url 'product-delete' product.id %}">刪除產品</a>
+        <a href="{% url 'product-delete' product.id %}">刪除商品</a>
     </p>
     <hr>
 </div>
 {% endfor %}
     
-<a href="{% url 'product-create' %}">新增產品</a>
+<a href="{% url 'product-create' %}">新增商品</a>
 
 {% endblock %}
