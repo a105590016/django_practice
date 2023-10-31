@@ -1,5 +1,31 @@
 {% extends 'sidebar.html' %}
 
 {% block content %}
-新增了 index.html 的頁面
+
+<h1>線上商城的首頁</h1>
+<hr>
+<p>所有老闆: {{ num_employers }}</p>
+<p>所有商店: {{ num_stores }}</p>
+<p>所有商品: {{ num_products }}</p>
+<hr>
+
+{% for employer in num_employers %}
+<ul>
+    <li>
+        <a href="{{ employer.get_absolute_url }}">id: {{ employer.id }}</a>
+    </li>
+    <li>姓: {{ employer.first_name }}</li>
+    <li>名: {{ employer.last_name }}</li>
+    <li>年齡: {{ employer.age }}</li>
+    <li>
+        商店:
+        {% for store in employer.store_set.all %}
+        <ul>
+            <li>{{ store.title }}: 有賣的產品 - {{ store.product_set.all | join:", " }}</li>
+        </ul>
+        {% endfor %}
+    </li>
+</ul>
+{% endfor %}
+
 {% endblock %}

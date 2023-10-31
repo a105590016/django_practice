@@ -13,7 +13,15 @@ def hello_world(request):
     return HttpResponse('hello')
 
 def index(request):
-    return render(request, 'index.html')
+    num_employers = Employer.objects.all()
+    num_stores = Store.objects.all()
+    num_products = Product.objects.all()
+    context = {
+        'num_employers': num_employers,
+        'num_stores': num_stores,
+        'num_products': num_products
+    }
+    return render(request, 'index.html', context=context)
 
 # region: employer
 

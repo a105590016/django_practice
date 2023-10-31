@@ -7,6 +7,17 @@
 <p>介紹: {{ store.description }}</p>
 <p>老闆: {{ store.employer }}</p>
 <p>老闆的年紀: {{ store.employer.age }}</p>
+
+<hr>
+
+<h3>商店賣的商品</h3>
+
+{% for product in store.product_set.all %}
+<ul>
+    <li>商品名稱: {{ product.title }}</li>
+</ul>
+{% endfor %}
+
 <a href="{% url 'store-update' store.id %}">編輯商店資料</a>
 <hr>
 <a href="{% url 'store-list' %}">回到上一頁</a>

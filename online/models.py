@@ -30,6 +30,8 @@ class Employer(models.Model):
 class Store(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()
+    # 一對多外鍵
+    # employer -> store
     employer = models.ForeignKey(Employer, on_delete=models.CASCADE, null=True)
     
     def get_obsolute_url(self):
@@ -41,6 +43,8 @@ class Store(models.Model):
 
 class Product(models.Model):
     title = models.CharField(max_length=100)
+    # 多對多外鍵
+    # store <-> product
     store = models.ManyToManyField(Store)
     
     def get_absolute_url(self):
@@ -48,6 +52,10 @@ class Product(models.Model):
     
     def __str__(self):
         return self.title
+    
+    def display_store(self):
+        return ', '.join(store.title for store in self.store.all()[:3])
+    
     
     
 class StoreProduct(models.Model):
