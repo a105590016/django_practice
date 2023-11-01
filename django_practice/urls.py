@@ -21,5 +21,6 @@ from django.conf.urls import include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('accounts/', include('django.contrib.auth.urls')),
     path('online/', include('online.urls')) # 引用 online 的 route
 ]
